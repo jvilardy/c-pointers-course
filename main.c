@@ -1,50 +1,28 @@
 #include <stdio.h>
 
 void main() {
-    int i = 0xAA;
-    char c = 3;
+    char *name_ptr = "PIYUSH";
+    char name_array[] = "piyush";
 
-    int x;
-    char *cptr;
-    printf("\n");
-    printf("c = %c, &c = %p\n", c, &c);
-    printf("(garbage) x = %d\n", x);
-    printf("(garbage) cptr = %p\n", cptr);
-    printf("(garbage) cptr = 0x%llx\n\n", (long long unsigned int)cptr);
+    // 1. Similarity between array and pointer
+    printf("name_ptr: %s, name_ptr: %p, *name_ptr: %c\n",
+            name_ptr,     name_ptr,     *name_ptr);
 
-    // 1. Use of & before the variable in non-pointer assigment
-    // x = i & c;
-    // printf("x = i & c; -> %d \n\n", x);
+    printf("name_array: %s, name_array: %p, *name_array: %c\n",
+            name_array,     name_array,     *name_array);
 
-    // 2. Use of & before the variable in non-pointer assigment
-    // cptr = &c;
-    // x = i & cptr;
-    // printf("x = i & &c; -> %d \n\n", x);
-    // x = i & &c;
-    // printf("x = i & &c; -> %d \n\n", x);
+    // 2. Difference between array and pointers #1
+    // printf("sizeof(name_ptr): %lu, sizeof(name_array): %lu\n", sizeof(name_ptr), sizeof(name_array));
 
-    // i = 0xFF;
-    // x = i & (int)&c;
-    // printf("x = i & (int)&c; -> %X \n\n", x);
+    int x[] = {10, 11, 12};
+    int *xptr = x;
 
-    // 3. Assign pointer a valid address
-    // cptr = &c;
-    // printf("cptr = %p, &c = %p\n\n", cptr, &c);
+    // printf("sizeof(xptr): %lu, sizeof(x): %lu\n", sizeof(xptr), sizeof(x));
 
-    // 4. The use of * with a pointer variable
-    // i = 2;
-    // x = i * cptr;
-    // printf("x = i *cptr; => %d\n\n", x);
-
-    // 5. The use of * with a pointer variable
-    cptr = &c;
-    printf("cptr = %p, &c = %p\n\n", cptr, &c);
-    i = 2;
-    x = i * *cptr;
-    printf("x = i * *cptr; => %d\n\n", x);
-
-    // 6. The use of * with a pointer variable
-    x = i * (*cptr);
-    printf("x = i * (*cptr); => %d\n\n", x);
-
+    // 3. Array cannot be reassigned but pointer can be
+    int a[] = {10, 11, 12};
+    int i = 1024;
+//     a = &i;
+    xptr = a;
+    int *iptr = &i;
 }
