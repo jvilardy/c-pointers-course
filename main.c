@@ -1,11 +1,22 @@
 #include <stdio.h>
 
 void main() {
-    int i = 10;
-    int *pi = &i;
-    int **ppi = &pi;
-    int ***pppi = &ppi;
+    char *p[10];
 
-    printf("%p, %p, %p, %p\n", &i, pi, ppi, pppi);
-    printf("%p, %p, %p, %p\n", &i, &pi, &ppi, pppi);
+  printf("p: %p\n", p);
+  for (int i = 0; i < 10; i++) {
+    p[i] = (char *)malloc(1);
+    *p[i] = 10 - i;
+    printf("p[%d]: %p\n", i, p[i]);
+  }
+
+  for (int i = 0; i < 10; i++) {
+    printf("*p[%d]: %d\n", i, *p[i]);
+  }
+
+  printf("sizeof(p): %lu\n", sizeof(p));
+
+  for (int i = 0; i < 10; i++) {
+    free(p[i]);
+  }
 }
