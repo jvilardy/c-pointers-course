@@ -1,22 +1,24 @@
 #include <stdio.h>
 
 void main() {
-    char *p[10];
+  char a = 'A';
+  int b = 1024;
+  float c = 1.0;
+  long long int d = 12345;
 
-  printf("p: %p\n", p);
-  for (int i = 0; i < 10; i++) {
-    p[i] = (char *)malloc(1);
-    *p[i] = 10 - i;
-    printf("p[%d]: %p\n", i, p[i]);
-  }
+  char *pa = &a;
+  int *pb = &b;
+  float *pc = &c;
+  long long int *pd = &d;
 
-  for (int i = 0; i < 10; i++) {
-    printf("*p[%d]: %d\n", i, *p[i]);
-  }
+  printf(" sizeof(*pa): %lu\n sizeof(*pb): %lu\n sizeof(*pc): %lu\n "
+         "sizeof(*pd): %lu\n\n",
+         sizeof(*pa), sizeof(*pb), sizeof(*pc), sizeof(*pd));
 
-  printf("sizeof(p): %lu\n", sizeof(p));
+  *pa = 'B';
+  *pb = *pb + 1;
+  *pc = *pc + 1;
+  *pd = *pd + 1;
 
-  for (int i = 0; i < 10; i++) {
-    free(p[i]);
-  }
+  printf(" a: %c\n b: %d\n c: %f\n d: %lld\n\n", *pa, *pb, *pc, *pd);
 }
