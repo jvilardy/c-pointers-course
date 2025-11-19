@@ -1,21 +1,21 @@
 #include <stdio.h>
 
-void function_1() {
-  printf("function_1()\n");
+void function_1(int a) {
+  printf("function_1(): a = %d\n", a);
 }
 
-void function_2() {
-  printf("function_2()\n");
+void function_2(int b) {
+  printf("function_2(): b = %d\n", b);
 }
 
 int main() {
-    void (*func_ptr)();
+    void (*pf)(int);
+    pf = function_1;
+    pf(10);
 
-    func_ptr = function_1;
-    func_ptr();
-
-    func_ptr = function_2;
-    func_ptr();
+    void (*qf)(int);
+    qf = &function_2;
+    qf(20);
 
     return 0;
 }
