@@ -1,14 +1,14 @@
 // math_library.h
+// void execute_operation(int operation, int a, int b);
+
+// math_library.c
+#include <stdio.h>
+#include "math.h"
+
 #define ADD 0
 #define SUB 1
 #define MUL 2
 #define DIV 3
-
-void execute_operation(int operation, int a, int b);
-
-// math_library.c
-#include "math_library.h"
-#include <stdio.h>
 
 static void add(int x, int y) { printf("add: %d\n", x + y); }
 
@@ -27,7 +27,7 @@ void execute_operation(int operation, int a, int b) {
 }
 
 // main.c
-#include "math_library.h"
+// #include "math_library.h"
 
 int main() {
   execute_operation(ADD, 100, 5);
