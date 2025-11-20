@@ -1,9 +1,12 @@
-#include "math_library.h"
+#include <stdio.h>
 
 int main() {
-  execute_operation(ADD, 100, 5);
-  execute_operation(SUB, 100, 5);
-  execute_operation(MUL, 100, 5);
-  execute_operation(DIV, 100, 5);
+  int i = 10;
+
+  void *pi = &i;
+
+  printf("pi: %p, &i: %p\n", pi, &i);
+  printf("*pi: %d\n", *(int *)pi);
+
   return 0;
 }
